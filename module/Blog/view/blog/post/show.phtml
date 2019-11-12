@@ -1,0 +1,33 @@
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+        <a href="<?php echo $this->url('post', array('action' => 'edit', 'id' => $post->id )) ?>" class="fas fa-edit btn btn-danger"></a>
+        <h1 class="h3 mb-0 text-gray-800"></h1>
+        <a href="<?php echo $this->url('post', array('action' => 'index')); ?>" class="btn btn-info ">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+    </div>
+
+    <div class="row mb-2">
+        <main class="container" role="main">
+            <div class="row">
+                <div class="col-md-12 blog-main">
+                    <h3 class="pb-3 mb-4 font-italic border-bottom">
+                        Symfony Blog
+                    </h3>
+                    <div class="blog-post">
+                        <h2 class="blog-post-title"><?php echo $post->title; ?></h2>
+                        <p class="blog-post-meta"><?php echo $post->created_at; ?></h2>
+                            by
+                            <a href="{{ path('user.profile',{'id': post.postedBy.id})}}">Ram</a>
+                        </p>
+                        <?php echo $post->description; ?>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        <!-- /.blog-main -->
+    </div>
+    <!-- /.row -->

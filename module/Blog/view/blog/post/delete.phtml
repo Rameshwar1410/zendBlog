@@ -1,0 +1,26 @@
+<?php
+
+$title = 'Delete post';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<p>
+    <h3 class="text text-danger">Are you sure that you want to delete
+        '<?php echo $this->escapeHtml($post->title); ?>'
+    </h3>
+    '<?php echo $post->description; ?>'?
+</p>
+<?php
+$url = $this->url('post', array(
+    'action' => 'delete',
+    'id'     => $this->id,
+));
+?>
+<form action="<?php echo $url; ?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo (int) $post->id; ?>" />
+        <input type="submit" name="del" class="btn btn-danger btn-sm" value="Yes" />
+        <input type="submit" name="del" class="btn btn-success btn-sm" value="No" />
+    </div>
+</form>

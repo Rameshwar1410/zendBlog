@@ -1,0 +1,38 @@
+<?php
+
+$title = 'My post';
+$this->headTitle($title);
+?>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800"><?php echo $this->escapeHtml($title); ?></h1>
+    <a href="<?php echo $this->url('post', array('action' => 'add')); ?>" class="btn btn-primary ">
+        <i class="fas fa-plus"></i>
+    </a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($posts as $post) : ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($post->title); ?></td>
+            <td>
+                    <a href="<?php echo $this->url(
+                                    'post',
+                                    array('action' => 'show', 'id' => $post->id)
+                                ); ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a> 
+                    <a href="<?php echo $this->url(
+                                    'post',
+                                    array('action' => 'edit', 'id' => $post->id)
+                                ); ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                    <a href="<?php echo $this->url(
+                                    'post',
+                                    array('action' => 'delete', 'id' => $post->id)
+                                ); ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
