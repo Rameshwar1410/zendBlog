@@ -28,9 +28,6 @@ class IndexController extends AbstractActionController
     {
         $content = 'sample content you want to convert';
         $converter = $this->getServiceLocator()->get('convertercontent');
-        $converter->get('xls')->convert($content);
-        $converter->get('pdf')->convert($content);
-        exit;
         return [
             'posts' => $this->getPostTable()->fetchAll(),
         ];
